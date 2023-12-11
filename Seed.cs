@@ -5,7 +5,6 @@ using PokemonReviewAPI.Models;
 namespace PokemonReviewApp
 {
 
-    // Go through the models and modify them correctly !
     public class Seed
     {
         private readonly DataContext dataContext;
@@ -31,18 +30,19 @@ namespace PokemonReviewApp
                             },
                             Reviews = new List<Review>()
                             {
-                                new Review { Title="Pikachu",Description = "Pickahu is the best pokemon, because it is electric", Rating = 5,
-                                Reviewer = new Reviewer(){ Name = "Teddy", Country=new Country(){Name= "Safari City" } } },
-                                new Review { Title="Pikachu", Description = "Pickachu is the best a killing rocks", Rating = 5,
-                                Reviewer = new Reviewer(){ Name = "Taylor", Country=new Country(){Name= "Safari City" }  } },
-                                new Review { Title="Pikachu",Description = "Pickchu, pickachu, pikachu", Rating = 1,
-                                Reviewer = new Reviewer(){ Name = "Jessica", Country=new Country(){Name= "Safari City" } } },
+                                new Review { Title="Pikachu",Text = "Pickahu is the best pokemon, because it is electric", Rating = 5,
+                                Reviewer = new Reviewer(){ FirstName = "Teddy", LastName = "Smith" } },
+                                new Review { Title="Pikachu", Text = "Pickachu is the best a killing rocks", Rating = 5,
+                                Reviewer = new Reviewer(){ FirstName = "Taylor", LastName = "Jones" } },
+                                new Review { Title="Pikachu",Text = "Pickchu, pickachu, pikachu", Rating = 1,
+                                Reviewer = new Reviewer(){ FirstName = "Jessica", LastName = "McGregor" } },
                             }
                         },
                         Owner = new Owner()
                         {
-                            Name = "Jack",
-                            City = "Brocks Gym",
+                            FirstName = "Jack",
+                            LastName = "London",
+                            Gym = "Brocks Gym",
                             Country = new Country()
                             {
                                 Name = "Kanto"
@@ -61,18 +61,19 @@ namespace PokemonReviewApp
                             },
                             Reviews = new List<Review>()
                             {
-                                new Review { Title= "Squirtle", Description = "squirtle is the best pokemon, because it is electric", Rating = 5,
-                                Reviewer = new Reviewer(){ Name = "Teddy", Country=new Country(){Name= "Safari City" }  } },
-                                new Review { Title= "Squirtle",Description = "Squirtle is the best a killing rocks", Rating = 5,
-                                Reviewer = new Reviewer(){ Name = "Taylor", Country=new Country(){Name= "Safari City" } } },
-                                new Review { Title= "Squirtle", Description = "squirtle, squirtle, squirtle", Rating = 1,
-                                Reviewer = new Reviewer(){ Name = "Jessica", Country=new Country(){Name= "Safari City" } } },
+                                new Review { Title= "Squirtle", Text = "squirtle is the best pokemon, because it is electric", Rating = 5,
+                                Reviewer = new Reviewer(){ FirstName = "Teddy", LastName = "Smith" } },
+                                new Review { Title= "Squirtle",Text = "Squirtle is the best a killing rocks", Rating = 5,
+                                Reviewer = new Reviewer(){ FirstName = "Taylor", LastName = "Jones" } },
+                                new Review { Title= "Squirtle", Text = "squirtle, squirtle, squirtle", Rating = 1,
+                                Reviewer = new Reviewer(){ FirstName = "Jessica", LastName = "McGregor" } },
                             }
                         },
                         Owner = new Owner()
                         {
-                            Name = "Harry",
-                            City = "Mistys Gym",
+                            FirstName = "Harry",
+                            LastName = "Potter",
+                            Gym = "Mistys Gym",
                             Country = new Country()
                             {
                                 Name = "Saffron City"
@@ -91,18 +92,19 @@ namespace PokemonReviewApp
                             },
                             Reviews = new List<Review>()
                             {
-                                new Review { Title="Veasaur",Description = "Venasuar is the best pokemon, because it is electric", Rating = 5,
-                                Reviewer = new Reviewer(){ Name = "Teddy", Country=new Country(){Name= "Safari City" } } },
-                                new Review { Title="Veasaur",Description = "Venasuar is the best a killing rocks", Rating = 5,
-                                Reviewer = new Reviewer(){ Name = "Taylor", Country=new Country(){Name= "Safari City" } } },
-                                new Review { Title="Veasaur",Description = "Venasuar, Venasuar, Venasuar", Rating = 1,
-                                Reviewer = new Reviewer(){ Name = "Jessica", Country=new Country(){Name= "Safari City" } } },
+                                new Review { Title="Veasaur",Text = "Venasuar is the best pokemon, because it is electric", Rating = 5,
+                                Reviewer = new Reviewer(){ FirstName = "Teddy", LastName = "Smith" } },
+                                new Review { Title="Veasaur",Text = "Venasuar is the best a killing rocks", Rating = 5,
+                                Reviewer = new Reviewer(){ FirstName = "Taylor", LastName = "Jones" } },
+                                new Review { Title="Veasaur",Text = "Venasuar, Venasuar, Venasuar", Rating = 1,
+                                Reviewer = new Reviewer(){ FirstName = "Jessica", LastName = "McGregor" } },
                             }
                         },
                         Owner = new Owner()
                         {
-                            Name = "Ash",
-                            City = "Mourouj",
+                            FirstName = "Ash",
+                            LastName = "Ketchum",
+                            Gym = "Ashs Gym",
                             Country = new Country()
                             {
                                 Name = "Millet Town"
