@@ -1,6 +1,10 @@
+using Microsoft.AspNetCore.Hosting.Server.Features;
 using Microsoft.EntityFrameworkCore;
 using PokemonReviewAPI.Data;
+using PokemonReviewAPI.Interfaces;
+using PokemonReviewAPI.Repository;
 using PokemonReviewApp;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +12,15 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddTransient<Seed>();
+builder.Services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddScoped<PokemonInterface, PokemonRepository>();
+builder.Services.AddScoped<CountryInterface, CountryRepository>();
+builder.Services.AddScoped<CategoryInterface, CategoryRepository>();
+builder.Services.AddScoped<ReviewerInterface, ReviewerRepository>();
+builder.Services.AddScoped<ReviewInterface, ReviewRepository>();
+builder.Services.AddScoped<OwnerInterface, OwnerRepository>();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -24,14 +37,15 @@ var app = builder.Build();
 if (args.Length == 1 && args[0].ToLower() == "seeddata")
     SeedData(app);
 
+
 void SeedData(IHost app)
 {
     var scopedFactory = app.Services.GetService<IServiceScopeFactory>();
 
-    using (var scope = scopedFactory.CreateScope())
+    using (var scope = scopedFactory?.CreateScope())
     {
         var service = scope.ServiceProvider.GetService<Seed>();
-        service.SeedDataContext();
+        service?.SeedDataContext();
     }
 }
 
