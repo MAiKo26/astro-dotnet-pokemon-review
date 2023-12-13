@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using PokemonReviewAPI.Data;
 using PokemonReviewAPI.Interfaces;
 using PokemonReviewAPI.Models;
+using System.Diagnostics.Metrics;
 
 namespace PokemonReviewAPI.Repository
 {
@@ -19,6 +21,20 @@ namespace PokemonReviewAPI.Repository
         {
             return this.context.Countries.Any(c => c.Id == id);
 
+        }
+
+        public bool CreateCountry(Country country)
+        {
+            this.context.Add(country);
+            return Save();
+        }
+
+      
+
+        public bool DeleteCountry(Country country)
+        {
+            this.context.Remove(country);
+            return Save();
         }
 
         public ICollection<Country> GetCountries()
@@ -39,6 +55,18 @@ namespace PokemonReviewAPI.Repository
         public ICollection<Owner> GetOwnersFromACountry(int countryId)
         {
             return this.context.Owners.Where(o => o.Country.Id == countryId).ToList();
+        }
+
+        public bool Save()
+        {
+            var saved = this.context.SaveChanges();
+            return saved > 0 ? true : false;
+        }
+
+        public bool UpdateCountry(Country country)
+        {
+            this.context.Update(country);
+            return Save();
         }
     }
 }
