@@ -1,0 +1,53 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { buttonVariants } from '@/components/ui/button'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
+
+
+export async function getStaticPaths() {
+  const response = await fetch('http://127.0.0.1:5067/api/Review')
+  const data = await response.json()
+
+  const paths = data.map((data) => ({
+    params: { slug: data.id },
+  }))
+  return paths
+}
+
+const { slug } = Astro.params
+console.log(slug)
+const response = await fetch('http://127.0.0.1:5067/api/Review/pokemon/' + slug)
+const data = await response.json()
+console.log(data);
+---
+
+<BaseLayout >
+  <section
+  class="container flex flex-wrap items-center gap-6 pb-8 pt-6 md:py-10"
+>
+  {
+    data.map((data, index) => (
+      <div class="shrink grow basis-1/3">
+        {' '}
+        <Card>
+          <CardHeader>
+            <CardTitle>{data.title}</CardTitle>
+          </CardHeader>
+          <CardContent>{data.text}
+          </CardContent>
+          <CardContent>{data.rating} Stars</CardContent>
+          
+        </Card>
+      </div>
+    ))
+  }
+</section>
+
+</BaseLayout>

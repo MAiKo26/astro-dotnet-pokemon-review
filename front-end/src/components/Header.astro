@@ -19,22 +19,15 @@ import { Astronav, MenuIcon, MenuItems } from 'astro-navbar'
         </a>
       </div>
 
-      <MenuItems class="mt-2 hidden w-full lg:mt-0 lg:flex ">
-        <div class="flex justify-between items-center w-full">
+      <MenuItems class="mt-2 hidden w-full lg:mt-0 lg:flex">
+        <div class="flex w-full items-center justify-between">
           <div class="flex gap-6 md:gap-10">
             <a href="/" class="flex items-center space-x-2">
               <Image src="/pokemonball.png" alt="Logo" width={50} height={50} />
             </a>
-            <a href="/pokemons" class="flex items-center space-x-2">
-              <span class="inline-block font-bold">Pokemons</span>
-            </a>
 
-            <a href="/owners" class="flex items-center space-x-2">
-              <span class="inline-block font-bold">Owners</span>
-            </a>
-
-            <a href="/reviewers" class="flex items-center space-x-2">
-              <span class="inline-block font-bold">Reviewers</span>
+            <a href="/pokemon/reviews/new" class="flex items-center space-x-2">
+              <span class="inline-block font-bold">Post a review</span>
             </a>
           </div>
           <div>
