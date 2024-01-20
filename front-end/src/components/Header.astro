@@ -1,31 +1,55 @@
 ---
 import { buttonVariants } from '@/components/ui/button'
 import ThemeToggle from '@/components/ThemeToggle.astro'
+import { Image } from 'astro:assets'
+import { Astronav, MenuIcon, MenuItems } from 'astro-navbar'
 ---
 
 <header
   class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
 >
-  <div
-    class="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0"
-  >
-    <div class="flex gap-6 md:gap-10">
-      <a href="/" class="flex items-center space-x-2">
-        <span class="inline-block font-bold">Home</span>
-      </a>
-    </div>
-    <div class="flex flex-1 items-center justify-end space-x-4">
-      <nav class="flex items-center space-x-1">
-        <a
-          href="https://github.com/AREA44/astro-shadcn-ui-template"
-          target="_blank"
-          rel="noreferrer"
-          class={buttonVariants({ variant: 'ghost' })}
-        >
-          GitHub
+  <Astronav>
+    <div
+      class="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0"
+    >
+      <div class="flex w-full items-center justify-between lg:hidden">
+        <MenuIcon class="h-6 w-6" />
+        <a href="/" class="flex items-center space-x-2">
+          <Image src="/pokemonball.png" alt="Logo" width={50} height={50} />
         </a>
-        <ThemeToggle />
-      </nav>
+      </div>
+
+      <MenuItems class="mt-2 hidden w-full lg:mt-0 lg:flex ">
+        <div class="flex justify-between items-center w-full">
+          <div class="flex gap-6 md:gap-10">
+            <a href="/" class="flex items-center space-x-2">
+              <Image src="/pokemonball.png" alt="Logo" width={50} height={50} />
+            </a>
+            <a href="/pokemons" class="flex items-center space-x-2">
+              <span class="inline-block font-bold">Pokemons</span>
+            </a>
+
+            <a href="/owners" class="flex items-center space-x-2">
+              <span class="inline-block font-bold">Owners</span>
+            </a>
+
+            <a href="/reviewers" class="flex items-center space-x-2">
+              <span class="inline-block font-bold">Reviewers</span>
+            </a>
+          </div>
+          <div>
+            <a
+              href="https://github.com/MAiKo26"
+              target="_blank"
+              rel="noreferrer"
+              class={buttonVariants({ variant: 'ghost' })}
+            >
+              GitHub
+            </a>
+            <ThemeToggle />
+          </div>
+        </div>
+      </MenuItems>
     </div>
-  </div>
+  </Astronav>
 </header>

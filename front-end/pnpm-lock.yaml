@@ -20,6 +20,9 @@ dependencies:
   astro:
     specifier: ^4.1.2
     version: 4.1.2(@types/node@20.11.0)(typescript@5.3.3)
+  astro-navbar:
+    specifier: ^2.3.0
+    version: 2.3.0
   class-variance-authority:
     specifier: ^0.7.0
     version: 0.7.0
@@ -1336,6 +1339,10 @@ packages:
 
   /array-iterate@2.0.1:
     resolution: {integrity: sha512-I1jXZMjAgCMmxT4qxXfPXa6SthSoE8h6gkSI9BGGNv8mP8G/v0blc+qFnZu6K42vTOiuME596QaLO0TP3Lk0xg==}
+    dev: false
+
+  /astro-navbar@2.3.0:
+    resolution: {integrity: sha512-5xnSuEuFM27FyWguZNRWv210P8J4MHCabkj+oHd94x+96peL3QRXWKpupGyHoo4Vdz4aNYe1GolcoOJRoJb7cA==}
     dev: false
 
   /astro@4.1.2(@types/node@20.11.0)(typescript@5.3.3):
